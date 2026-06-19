@@ -108,114 +108,96 @@ button,input,select{font-family:inherit}
 }
 
 .drop-section{
-  background:#171814;
+  background:#050505;
   min-height:760px;
-  padding:110px 26px 120px;
+  padding:88px 18px 92px;
 }
 
 .products{
-  max-width:950px;
+  max-width:1560px;
   margin:0 auto;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:72px;
+  gap:8px;
   align-items:start;
 }
 
-.product-card{
+.product-card,
+.product-card.featured{
   position:relative;
   color:#f6f3d8;
+  background:#050505;
+  border:0;
+  padding:0;
+  margin:0;
+  text-align:center;
 }
 
-.product-card.featured{
-  border:2px solid #8a8350;
-  padding:70px 18px 18px;
-  margin-top:-28px;
-}
-
-.product-image{
+.product-image,
+.product-card.featured .product-image{
   width:100%;
-  height:185px;
+  height:560px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:28px;
-  background:transparent;
+  margin-bottom:18px;
+  background:#ededed;
+  overflow:hidden;
 }
 
-.product-image img{
-  width:100%;
-  height:100%;
+.product-image img,
+.product-card.featured .product-image img{
+  width:90%;
+  height:90%;
   object-fit:contain;
   display:block;
+  transition:.25s ease;
 }
 
-.product-card.featured .product-image{
-  height:230px;
+.product-card:hover .product-image img{
+  transform:scale(1.025);
 }
 
 .badges{
-  display:flex;
-  gap:5px;
-  flex-wrap:wrap;
-  margin-bottom:8px;
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  padding:3px 6px;
-  background:#f6f3d8;
-  color:#171814;
-  font-size:8px;
-  font-weight:900;
-  text-transform:uppercase;
-  line-height:1;
-}
-
-.badge.dark{
-  background:#171814;
-  color:#f6f3d8;
-  border:1px solid #f6f3d8;
+  display:none;
 }
 
 .product-title{
-  font-size:11px;
+  font-size:13px;
   line-height:1.25;
   font-weight:900;
-  text-transform:lowercase;
-  margin-bottom:4px;
+  text-transform:uppercase;
+  margin:0 0 7px;
   color:#f6f3d8;
+  letter-spacing:.3px;
 }
 
 .product-subtitle{
-  font-size:10px;
-  color:#c9c4a6;
-  text-transform:lowercase;
-  margin-bottom:4px;
+  display:none;
 }
 
 .product-price{
-  font-size:10px;
+  font-size:13px;
   font-weight:800;
   color:#f6f3d8;
+  margin-bottom:14px;
 }
 
 .buy-link{
   display:inline-flex;
-  margin-top:12px;
-  padding:8px 12px;
-  border:1px solid #f6f3d8;
+  margin-top:0;
+  padding:10px 16px;
+  border:1px solid #8a8350;
   color:#f6f3d8;
-  font-size:9px;
+  font-size:10px;
   font-weight:900;
   text-transform:uppercase;
   transition:.2s;
 }
 
 .buy-link:hover{
-  background:#f6f3d8;
-  color:#171814;
+  background:#8a8350;
+  color:#f6f3d8;
 }
 
 .newsletter-section{
@@ -458,6 +440,60 @@ button,input,select{font-family:inherit}
   cursor:pointer;
 }
 
+.video-section{
+  position:relative;
+  width:100%;
+  height:82vh;
+  min-height:560px;
+  overflow:hidden;
+  background:#000;
+}
+
+.video-section video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.video-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.35),transparent 30%),
+    linear-gradient(to top,rgba(0,0,0,.65),transparent 45%);
+  z-index:1;
+  pointer-events:none;
+}
+
+.video-content{
+  position:absolute;
+  left:50%;
+  bottom:52px;
+  transform:translateX(-50%);
+  z-index:2;
+  width:min(900px,calc(100% - 44px));
+  text-align:center;
+  color:#f6f3d8;
+}
+
+.video-content h2{
+  font-size:58px;
+  line-height:.9;
+  font-weight:900;
+  letter-spacing:-3px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.video-content p{
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+}
+
 @media(max-width:900px){
   .site-header{height:54px}
 
@@ -493,17 +529,27 @@ button,input,select{font-family:inherit}
 
   .products{
     grid-template-columns:1fr;
-    max-width:360px;
-    gap:54px;
-  }
-
-  .product-card.featured{
-    margin-top:0;
+    max-width:520px;
+    gap:38px;
   }
 
   .product-image,
   .product-card.featured .product-image{
-    height:260px;
+    height:520px;
+  }
+
+
+  .video-section{
+    height:62vh;
+    min-height:420px;
+  }
+
+  .video-content h2{
+    font-size:38px;
+  }
+
+  .video-content p{
+    font-size:12px;
   }
 
   .newsletter-form{
@@ -592,20 +638,14 @@ button,input,select{font-family:inherit}
 <section class="drop-section" id="products">
   <div class="products">
 
-    <article class="product-card featured">
+    <article class="product-card">
       <a href="https://www.paypal.com/invoice/p/#FRGRTPPA7A4HW4MU" target="_blank">
         <div class="product-image">
           <img src="./hoodie1.jpg?v=1" alt="Yirtuamlak merch hoodie front">
         </div>
       </a>
 
-      <div class="badges">
-        <span class="badge">Pre-order</span>
-        <span class="badge dark">Exclusive ♡</span>
-      </div>
-
       <h2 class="product-title">Yirtuamlak Merch</h2>
-      <p class="product-subtitle">logo hoodie</p>
       <p class="product-price">€99,00</p>
 
       <a class="buy-link" href="https://www.paypal.com/invoice/p/#FRGRTPPA7A4HW4MU" target="_blank">Buy Now</a>
@@ -618,12 +658,7 @@ button,input,select{font-family:inherit}
         </div>
       </a>
 
-      <div class="badges">
-        <span class="badge">Pre-order</span>
-      </div>
-
-      <h2 class="product-title">On Body Fit</h2>
-      <p class="product-subtitle">front / fit preview</p>
+      <h2 class="product-title">Back Design</h2>
       <p class="product-price">€99,00</p>
 
       <a class="buy-link" href="https://www.paypal.com/invoice/p/#FRGRTPPA7A4HW4MU" target="_blank">Buy Now</a>
@@ -636,13 +671,7 @@ button,input,select{font-family:inherit}
         </div>
       </a>
 
-      <div class="badges">
-        <span class="badge">Pre-order</span>
-        <span class="badge dark">Exclusive ♡</span>
-      </div>
-
-      <h2 class="product-title">Back Design</h2>
-      <p class="product-subtitle">on body preview</p>
+      <h2 class="product-title">On Body Fit</h2>
       <p class="product-price">€99,00</p>
 
       <a class="buy-link" href="https://www.paypal.com/invoice/p/#FRGRTPPA7A4HW4MU" target="_blank">Buy Now</a>
@@ -692,6 +721,18 @@ button,input,select{font-family:inherit}
     Receive the latest information about releases, giveaways and promotions by email.
     You may withdraw your consent at any time. Discount code is sent manually after signup.
   </p>
+</section>
+
+
+<section class="video-section" id="campaign-video">
+  <video autoplay muted loop playsinline preload="metadata">
+    <source src="./IMG_3497.MOV" type="video/mp4">
+  </video>
+
+  <div class="video-content">
+    <h2>Yirtuamlak World</h2>
+    <p>Official merch campaign</p>
+  </div>
 </section>
 
 </main>
