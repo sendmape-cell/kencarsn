@@ -1520,11 +1520,26 @@ main,
   const newsletterForm = document.getElementById('newsletterForm');
   const newsletterStatus = document.getElementById('newsletterStatus');
 
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      newsletterPopup.classList.add('active');
-    }, 700);
-  });
+window.addEventListener('load', () => {
+
+    const lastPopup = localStorage.getItem('newsletter_popup');
+
+    if (!lastPopup || Date.now() - Number(lastPopup) > 15 * 60 * 1000) {
+
+        setTimeout(() => {
+
+            newsletterPopup.classList.add('active');
+
+            localStorage.setItem(
+                'newsletter_popup',
+                Date.now()
+            );
+
+        }, 700);
+
+    }
+
+});
 
   function closeNewsletterPopup(){
     newsletterPopup.classList.remove('active');
