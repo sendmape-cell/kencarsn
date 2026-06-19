@@ -9,39 +9,13 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{
-  scroll-behavior:smooth;
-  scrollbar-gutter:stable;
-}
-
-::selection{
-  background:#8a8350;
-  color:#f6f3d8;
-}
-
-::-webkit-scrollbar{
-  width:10px;
-}
-
-::-webkit-scrollbar-track{
-  background:#050505;
-}
-
-::-webkit-scrollbar-thumb{
-  background:#8a8350;
-  border-radius:999px;
-}
+html{scroll-behavior:smooth}
 
 body{
-  background:#171814;
-  color:#f6f3d8;
+  background:#fff;
+  color:#050505;
   font-family:'Inter',sans-serif;
   overflow-x:hidden;
-  text-rendering:geometricPrecision;
-}
-
-body.modal-open{
-  overflow:hidden;
 }
 
 a{text-decoration:none;color:inherit}
@@ -52,10 +26,9 @@ button,input,select{font-family:inherit}
   top:0;
   z-index:1000;
   height:58px;
-  background:rgba(0,0,0,.9);
+  background:#000;
   color:#f6f3d8;
   border-bottom:1px solid rgba(246,243,216,.08);
-  backdrop-filter:blur(12px);
 }
 
 .header-inner{
@@ -135,7 +108,7 @@ button,input,select{font-family:inherit}
 }
 
 .drop-section{
-  background:#050505;
+  background:#fff;
   min-height:760px;
   padding:88px 18px 92px;
 }
@@ -152,8 +125,8 @@ button,input,select{font-family:inherit}
 .product-card,
 .product-card.featured{
   position:relative;
-  color:#f6f3d8;
-  background:#050505;
+  color:#050505;
+  background:#fff;
   border:0;
   padding:0;
   margin:0;
@@ -168,7 +141,7 @@ button,input,select{font-family:inherit}
   align-items:center;
   justify-content:center;
   margin-bottom:18px;
-  background:#ededed;
+  background:#f1f1f1;
   overflow:hidden;
 }
 
@@ -195,7 +168,7 @@ button,input,select{font-family:inherit}
   font-weight:900;
   text-transform:uppercase;
   margin:0 0 7px;
-  color:#f6f3d8;
+  color:#050505;
   letter-spacing:.3px;
 }
 
@@ -206,7 +179,7 @@ button,input,select{font-family:inherit}
 .product-price{
   font-size:13px;
   font-weight:800;
-  color:#f6f3d8;
+  color:#050505;
   margin-bottom:14px;
 }
 
@@ -225,8 +198,8 @@ button,input,select{font-family:inherit}
   display:inline-flex;
   margin-top:0;
   padding:10px 16px;
-  border:1px solid #8a8350;
-  color:#f6f3d8;
+  border:1px solid #050505;
+  color:#050505;
   font-size:10px;
   font-weight:900;
   text-transform:uppercase;
@@ -234,12 +207,12 @@ button,input,select{font-family:inherit}
 }
 
 .buy-link:hover{
-  background:#8a8350;
+  background:#050505;
   color:#f6f3d8;
 }
 
 .release-section{
-  background:#050505;
+  background:#fff;
   padding:70px 18px 42px;
 }
 
@@ -252,8 +225,8 @@ button,input,select{font-family:inherit}
   align-items:center;
   padding:30px;
   border-radius:34px;
-  background:rgba(14,14,14,.92);
-  border:1px solid rgba(246,243,216,.08);
+  background:#fff;
+  border:1px solid #e5e5e5;
 }
 
 .release-cover{
@@ -299,7 +272,7 @@ button,input,select{font-family:inherit}
 }
 
 .release-tag{
-  color:#8a8350;
+  color:#777153;
   text-transform:uppercase;
   letter-spacing:5px;
   font-size:12px;
@@ -313,11 +286,11 @@ button,input,select{font-family:inherit}
   font-weight:900;
   letter-spacing:-2px;
   margin-bottom:14px;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .release-text{
-  color:#f6f3d8;
+  color:#050505;
   opacity:.88;
   line-height:1.7;
   max-width:620px;
@@ -334,9 +307,9 @@ button,input,select{font-family:inherit}
 .release-platforms a{
   padding:12px 17px;
   border-radius:999px;
-  background:#111;
-  border:1px solid rgba(246,243,216,.08);
-  color:#f6f3d8;
+  background:#f7f7f3;
+  border:1px solid #e5e5e5;
+  color:#050505;
   font-size:14px;
   font-weight:800;
 }
@@ -350,15 +323,15 @@ button,input,select{font-family:inherit}
   max-width:1260px;
   margin:22px auto 0;
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
 
 .info-card{
   padding:28px;
   border-radius:30px;
-  background:rgba(14,14,14,.92);
-  border:1px solid rgba(246,243,216,.08);
+  background:#fff;
+  border:1px solid #e5e5e5;
 }
 
 .info-card h3{
@@ -374,8 +347,8 @@ button,input,select{font-family:inherit}
 }
 
 .newsletter-section{
-  background:#171814;
-  color:#f6f3d8;
+  background:#fff;
+  color:#050505;
   padding:86px 24px 120px;
   text-align:center;
 }
@@ -386,7 +359,7 @@ button,input,select{font-family:inherit}
   font-weight:900;
   text-transform:uppercase;
   margin-bottom:22px;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .newsletter-section .intro{
@@ -395,7 +368,7 @@ button,input,select{font-family:inherit}
   font-size:14px;
   line-height:1.45;
   font-weight:700;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .newsletter-form{
@@ -412,7 +385,7 @@ button,input,select{font-family:inherit}
   font-size:13px;
   font-weight:900;
   margin-bottom:8px;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .form-field input,
@@ -420,21 +393,21 @@ button,input,select{font-family:inherit}
   width:100%;
   height:40px;
   padding:0 12px;
-  background:#171814;
-  color:#f6f3d8;
-  border:1px solid #777153;
+  background:#fff;
+  color:#050505;
+  border:1px solid #bdb7a0;
   outline:none;
   font-size:14px;
 }
 
-.form-field input::placeholder{color:#6f6b56}
+.form-field input::placeholder{color:#777}
 
 .newsletter-confirm{
   max-width:620px;
   margin:34px auto 18px;
   font-size:10px;
   font-weight:800;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .subscribe-btn{
@@ -460,7 +433,7 @@ button,input,select{font-family:inherit}
   font-size:10px;
   line-height:1.35;
   font-weight:700;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .newsletter-status{
@@ -468,7 +441,7 @@ button,input,select{font-family:inherit}
   margin:18px auto 0;
   font-size:12px;
   font-weight:900;
-  color:#f6f3d8;
+  color:#050505;
 }
 
 .footer{
@@ -896,107 +869,6 @@ button,input,select{font-family:inherit}
   line-height:1.45;
 }
 
-
-.scroll-progress{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:12000;
-  width:0%;
-  height:3px;
-  background:#8a8350;
-  box-shadow:0 0 18px rgba(138,131,80,.65);
-  pointer-events:none;
-}
-
-.fade-up{
-  opacity:0;
-  transform:translateY(26px);
-  transition:opacity .7s ease, transform .7s ease;
-}
-
-.fade-up.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.product-card,
-.release-card,
-.info-card,
-.newsletter-section,
-.video-section{
-  will-change:transform,opacity;
-}
-
-.product-card{
-  transition:transform .25s ease;
-}
-
-.product-card:hover{
-  transform:translateY(-5px);
-}
-
-.info-card{
-  transition:transform .25s ease,border-color .25s ease,background .25s ease;
-}
-
-.info-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(138,131,80,.45);
-  background:rgba(18,18,16,.98);
-}
-
-.release-card{
-  transition:transform .3s ease,border-color .3s ease;
-}
-
-.release-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(138,131,80,.42);
-}
-
-.release-cover,
-.product-image,
-.video-section{
-  transform:translateZ(0);
-}
-
-.back-to-top{
-  position:fixed;
-  right:18px;
-  bottom:26px;
-  z-index:950;
-  width:46px;
-  height:46px;
-  border:1px solid rgba(246,243,216,.18);
-  border-radius:50%;
-  background:rgba(0,0,0,.72);
-  color:#f6f3d8;
-  font-size:22px;
-  font-weight:900;
-  cursor:pointer;
-  opacity:0;
-  pointer-events:none;
-  transform:translateY(10px);
-  transition:.22s ease;
-  backdrop-filter:blur(10px);
-}
-
-.back-to-top.visible{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
-  }
-}
-
 @media(max-width:900px){
   .site-header{height:54px}
 
@@ -1113,12 +985,89 @@ button,input,select{font-family:inherit}
     font-size:18px;
   }
 }
+
+
+/* White site theme overrides */
+body{
+  background:#fff;
+  color:#050505;
+}
+
+main,
+.hero,
+.release-section,
+.drop-section,
+.newsletter-section{
+  background:#fff;
+  color:#050505;
+}
+
+.release-card{
+  background:#fff;
+  border:1px solid #e6e6e6;
+  box-shadow:0 18px 60px rgba(0,0,0,.06);
+}
+
+.release-info h2,
+.release-text,
+.newsletter-section h2,
+.newsletter-section .intro,
+.newsletter-confirm,
+.newsletter-small,
+.newsletter-status,
+.form-field label,
+.product-title,
+.product-price{
+  color:#050505;
+}
+
+.product-card,
+.product-card.featured{
+  background:#fff;
+  color:#050505;
+}
+
+.product-image,
+.product-card.featured .product-image{
+  background:#f0f0f0;
+}
+
+.buy-link{
+  border-color:#050505;
+  color:#050505;
+}
+
+.buy-link:hover{
+  background:#050505;
+  color:#f6f3d8;
+}
+
+.release-platforms a{
+  background:#f7f7f3;
+  color:#050505;
+  border:1px solid #e2e2df;
+}
+
+.release-platforms a:hover{
+  background:#050505;
+  color:#f6f3d8;
+}
+
+.form-field input,
+.form-field select{
+  background:#fff;
+  color:#050505;
+  border:1px solid #bdb7a0;
+}
+
+.info-grid{
+  display:none;
+}
+
 </style>
 </head>
 
 <body>
-
-<div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="newsletter-popup" id="newsletterPopup">
   <div class="newsletter-box">
@@ -1160,7 +1109,7 @@ button,input,select{font-family:inherit}
 
 <main>
 
-<section class="hero fade-up">
+<section class="hero">
   <div class="hero-inner">
     <h1 class="pixel-title">yirtuamlak</h1>
 
@@ -1172,8 +1121,8 @@ button,input,select{font-family:inherit}
 </section>
 
 
-<section class="release-section fade-up" id="release">
-  <div class="release-card fade-up">
+<section class="release-section" id="release">
+  <div class="release-card">
     <div class="release-cover">
       <div class="release-cover-content">
         <span>Cover Art</span>
@@ -1200,25 +1149,12 @@ button,input,select{font-family:inherit}
     </div>
   </div>
 
-  <div class="info-grid">
-    <div class="info-card fade-up">
-      <h3>Streaming</h3>
-      <p>All music platforms connected in one official destination.</p>
-    </div>
-
-
-
-    <div class="info-card fade-up">
-      <h3>Direct booking</h3>
-      <p>Contact for shows, collaborations, interviews and business.</p>
-    </div>
-  </div>
 </section>
 
-<section class="drop-section fade-up" id="products">
+<section class="drop-section" id="products">
   <div class="products">
 
-    <article class="product-card fade-up">
+    <article class="product-card">
       <button class="product-open" type="button" data-image="./hoodie1.jpg?v=1" aria-label="Open Yirtuamlak Merch details">
         <div class="product-image">
           <img src="./hoodie1.jpg?v=1" alt="Yirtuamlak merch hoodie front">
@@ -1231,7 +1167,7 @@ button,input,select{font-family:inherit}
       <button class="buy-link product-open" type="button" data-image="./hoodie1.jpg?v=1">Buy Now</button>
     </article>
 
-    <article class="product-card fade-up">
+    <article class="product-card">
       <button class="product-open" type="button" data-image="./hoodie2.jpg?v=1" aria-label="Open Back Design details">
         <div class="product-image">
           <img src="./hoodie2.jpg?v=1" alt="Yirtuamlak hoodie back design">
@@ -1244,7 +1180,7 @@ button,input,select{font-family:inherit}
       <button class="buy-link product-open" type="button" data-image="./hoodie2.jpg?v=1">Buy Now</button>
     </article>
 
-    <article class="product-card fade-up">
+    <article class="product-card">
       <button class="product-open" type="button" data-image="./hoodie3.jpg?v=1" aria-label="Open On Body Fit details">
         <div class="product-image">
           <img src="./hoodie3.jpg?v=1" alt="Yirtuamlak hoodie on body back">
@@ -1260,7 +1196,7 @@ button,input,select{font-family:inherit}
   </div>
 </section>
 
-<section class="newsletter-section fade-up" id="newsletter">
+<section class="newsletter-section" id="newsletter">
   <h2>Newsletter abonnieren und 10% Rabatt sichern</h2>
 
   <p class="intro">
@@ -1281,60 +1217,51 @@ button,input,select{font-family:inherit}
 
     <div class="form-field">
       <label for="country">Country *</label>
-<select id="country" name="entry.1367101595" required>
-
-    <option>United States</option>
-    <option>United Kingdom</option>
-    <option>Canada</option>
-
-    <option>Germany</option>
-    <option>France</option>
-    <option>Italy</option>
-    <option>Spain</option>
-    <option>Netherlands</option>
-    <option>Belgium</option>
-    <option>Austria</option>
-    <option>Switzerland</option>
-    <option>Ireland</option>
-    <option>Portugal</option>
-
-    <option>Sweden</option>
-    <option>Norway</option>
-    <option>Denmark</option>
-    <option>Finland</option>
-
-    <option>Poland</option>
-    <option>Czech Republic</option>
-    <option>Latvia</option>
-    <option>Lithuania</option>
-    <option>Estonia</option>
-
-    <option>Australia</option>
-    <option>New Zealand</option>
-
-    <option>Japan</option>
-    <option>South Korea</option>
-    <option>Singapore</option>
-    <option>Hong Kong</option>
-    <option>Taiwan</option>
-    <option>Malaysia</option>
-    <option>Thailand</option>
-    <option>Philippines</option>
-    <option>India</option>
-
-    <option>Mexico</option>
-    <option>Brazil</option>
-    <option>Argentina</option>
-    <option>Chile</option>
-    <option>Colombia</option>
-
-    <option>South Africa</option>
-    <option>Morocco</option>
-    <option>Nigeria</option>
-
-    <option>Other</option>
-
-</select>
+      <select id="country" name="entry.1367101595" required>
+        <option selected disabled>Select Country</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Germany</option>
+        <option>France</option>
+        <option>Italy</option>
+        <option>Spain</option>
+        <option>Netherlands</option>
+        <option>Belgium</option>
+        <option>Austria</option>
+        <option>Switzerland</option>
+        <option>Ireland</option>
+        <option>Portugal</option>
+        <option>Sweden</option>
+        <option>Norway</option>
+        <option>Denmark</option>
+        <option>Finland</option>
+        <option>Poland</option>
+        <option>Czech Republic</option>
+        <option>Latvia</option>
+        <option>Lithuania</option>
+        <option>Estonia</option>
+        <option>Australia</option>
+        <option>New Zealand</option>
+        <option>Japan</option>
+        <option>South Korea</option>
+        <option>Singapore</option>
+        <option>Hong Kong</option>
+        <option>Taiwan</option>
+        <option>Malaysia</option>
+        <option>Thailand</option>
+        <option>Philippines</option>
+        <option>India</option>
+        <option>Mexico</option>
+        <option>Brazil</option>
+        <option>Argentina</option>
+        <option>Chile</option>
+        <option>Colombia</option>
+        <option>South Africa</option>
+        <option>Morocco</option>
+        <option>Nigeria</option>
+        <option>Other</option>
+      </select>
     </div>
   </form>
 
@@ -1355,7 +1282,7 @@ button,input,select{font-family:inherit}
 </section>
 
 
-<section class="video-section fade-up" id="campaign-video">
+<section class="video-section" id="campaign-video">
   <video autoplay muted loop playsinline preload="metadata">
     <source src="./hero.mp4" type="video/mp4">
   </video>
@@ -1448,20 +1375,14 @@ button,input,select{font-family:inherit}
   </div>
 </div>
 
-<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
-
-<footer class="footer fade-up">
+<footer class="footer">
   <div class="footer-logo">Yirtuamlak</div>
 
   <div class="footer-links">
-    <a href="#">Shipping Cost</a>
-    <a href="#">Payment Methods</a>
-    <a href="#">Service & Help</a>
-    <a href="#">Refund Policy</a>
-    <a href="#">Return</a>
-    <a href="#">GTC</a>
-    <a href="#">Privacy</a>
-    <a href="#">Imprint</a>
+    <a href="https://www.stoked.de/en/policies/shipping-policy" target="_blank">Shipping Cost</a>
+    <a href="https://www.stoked.de/en/pages/zahlarten" target="_blank">Payment Methods</a>
+    <a href="https://www.stoked.de/en/pages/service-hilfe" target="_blank">Service & Help</a>
+    <a href="https://www.stoked.de/en/policies/refund-policy" target="_blank">Refund Policy</a>
   </div>
 
   <div class="footer-socials">
@@ -1480,44 +1401,8 @@ button,input,select{font-family:inherit}
   const discountTab = document.getElementById('discountTab');
   const newsletterForm = document.getElementById('newsletterForm');
   const newsletterStatus = document.getElementById('newsletterStatus');
-  const scrollProgress = document.getElementById('scrollProgress');
-  const backToTop = document.getElementById('backToTop');
-
-
-  function updateScrollProgress(){
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    scrollProgress.style.width = `${progress}%`;
-
-    if(scrollTop > 620){
-      backToTop.classList.add('visible');
-    }else{
-      backToTop.classList.remove('visible');
-    }
-  }
-
-  window.addEventListener('scroll', updateScrollProgress, {passive:true});
-  window.addEventListener('resize', updateScrollProgress);
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-
-  const revealItems = document.querySelectorAll('.fade-up');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-
-  revealItems.forEach((item) => revealObserver.observe(item));
 
   window.addEventListener('load', () => {
-    updateScrollProgress();
     setTimeout(() => {
       newsletterPopup.classList.add('active');
     }, 700);
@@ -1565,13 +1450,13 @@ button,input,select{font-family:inherit}
     setProductImage(imageSrc || './hoodie1.jpg?v=1');
     productModal.classList.add('active');
     productModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeProductModal(){
     productModal.classList.remove('active');
     productModal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
   }
 
   productOpenButtons.forEach((button) => {
