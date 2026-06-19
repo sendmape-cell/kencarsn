@@ -9,13 +9,39 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+  scrollbar-gutter:stable;
+}
+
+::selection{
+  background:#8a8350;
+  color:#f6f3d8;
+}
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#8a8350;
+  border-radius:999px;
+}
 
 body{
   background:#171814;
   color:#f6f3d8;
   font-family:'Inter',sans-serif;
   overflow-x:hidden;
+  text-rendering:geometricPrecision;
+}
+
+body.modal-open{
+  overflow:hidden;
 }
 
 a{text-decoration:none;color:inherit}
@@ -26,9 +52,10 @@ button,input,select{font-family:inherit}
   top:0;
   z-index:1000;
   height:58px;
-  background:#000;
+  background:rgba(0,0,0,.9);
   color:#f6f3d8;
   border-bottom:1px solid rgba(246,243,216,.08);
+  backdrop-filter:blur(12px);
 }
 
 .header-inner{
@@ -323,7 +350,7 @@ button,input,select{font-family:inherit}
   max-width:1260px;
   margin:22px auto 0;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:16px;
 }
 
@@ -869,6 +896,107 @@ button,input,select{font-family:inherit}
   line-height:1.45;
 }
 
+
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:12000;
+  width:0%;
+  height:3px;
+  background:#8a8350;
+  box-shadow:0 0 18px rgba(138,131,80,.65);
+  pointer-events:none;
+}
+
+.fade-up{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.fade-up.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.product-card,
+.release-card,
+.info-card,
+.newsletter-section,
+.video-section{
+  will-change:transform,opacity;
+}
+
+.product-card{
+  transition:transform .25s ease;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+}
+
+.info-card{
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+
+.info-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(138,131,80,.45);
+  background:rgba(18,18,16,.98);
+}
+
+.release-card{
+  transition:transform .3s ease,border-color .3s ease;
+}
+
+.release-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(138,131,80,.42);
+}
+
+.release-cover,
+.product-image,
+.video-section{
+  transform:translateZ(0);
+}
+
+.back-to-top{
+  position:fixed;
+  right:18px;
+  bottom:26px;
+  z-index:950;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(246,243,216,.18);
+  border-radius:50%;
+  background:rgba(0,0,0,.72);
+  color:#f6f3d8;
+  font-size:22px;
+  font-weight:900;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:.22s ease;
+  backdrop-filter:blur(10px);
+}
+
+.back-to-top.visible{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
 @media(max-width:900px){
   .site-header{height:54px}
 
@@ -990,6 +1118,8 @@ button,input,select{font-family:inherit}
 
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <div class="newsletter-popup" id="newsletterPopup">
   <div class="newsletter-box">
     <button class="newsletter-close" id="newsletterClose" aria-label="Close popup">×</button>
@@ -1030,7 +1160,7 @@ button,input,select{font-family:inherit}
 
 <main>
 
-<section class="hero">
+<section class="hero fade-up">
   <div class="hero-inner">
     <h1 class="pixel-title">yirtuamlak</h1>
 
@@ -1042,8 +1172,8 @@ button,input,select{font-family:inherit}
 </section>
 
 
-<section class="release-section" id="release">
-  <div class="release-card">
+<section class="release-section fade-up" id="release">
+  <div class="release-card fade-up">
     <div class="release-cover">
       <div class="release-cover-content">
         <span>Cover Art</span>
@@ -1071,24 +1201,24 @@ button,input,select{font-family:inherit}
   </div>
 
   <div class="info-grid">
-    <div class="info-card">
+    <div class="info-card fade-up">
       <h3>Streaming</h3>
       <p>All music platforms connected in one official destination.</p>
     </div>
 
 
 
-    <div class="info-card">
+    <div class="info-card fade-up">
       <h3>Direct booking</h3>
       <p>Contact for shows, collaborations, interviews and business.</p>
     </div>
   </div>
 </section>
 
-<section class="drop-section" id="products">
+<section class="drop-section fade-up" id="products">
   <div class="products">
 
-    <article class="product-card">
+    <article class="product-card fade-up">
       <button class="product-open" type="button" data-image="./hoodie1.jpg?v=1" aria-label="Open Yirtuamlak Merch details">
         <div class="product-image">
           <img src="./hoodie1.jpg?v=1" alt="Yirtuamlak merch hoodie front">
@@ -1101,7 +1231,7 @@ button,input,select{font-family:inherit}
       <button class="buy-link product-open" type="button" data-image="./hoodie1.jpg?v=1">Buy Now</button>
     </article>
 
-    <article class="product-card">
+    <article class="product-card fade-up">
       <button class="product-open" type="button" data-image="./hoodie2.jpg?v=1" aria-label="Open Back Design details">
         <div class="product-image">
           <img src="./hoodie2.jpg?v=1" alt="Yirtuamlak hoodie back design">
@@ -1114,7 +1244,7 @@ button,input,select{font-family:inherit}
       <button class="buy-link product-open" type="button" data-image="./hoodie2.jpg?v=1">Buy Now</button>
     </article>
 
-    <article class="product-card">
+    <article class="product-card fade-up">
       <button class="product-open" type="button" data-image="./hoodie3.jpg?v=1" aria-label="Open On Body Fit details">
         <div class="product-image">
           <img src="./hoodie3.jpg?v=1" alt="Yirtuamlak hoodie on body back">
@@ -1130,7 +1260,7 @@ button,input,select{font-family:inherit}
   </div>
 </section>
 
-<section class="newsletter-section" id="newsletter">
+<section class="newsletter-section fade-up" id="newsletter">
   <h2>Newsletter abonnieren und 10% Rabatt sichern</h2>
 
   <p class="intro">
@@ -1178,7 +1308,7 @@ button,input,select{font-family:inherit}
 </section>
 
 
-<section class="video-section" id="campaign-video">
+<section class="video-section fade-up" id="campaign-video">
   <video autoplay muted loop playsinline preload="metadata">
     <source src="./hero.mp4" type="video/mp4">
   </video>
@@ -1271,7 +1401,9 @@ button,input,select{font-family:inherit}
   </div>
 </div>
 
-<footer class="footer">
+<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+<footer class="footer fade-up">
   <div class="footer-logo">Yirtuamlak</div>
 
   <div class="footer-links">
@@ -1301,8 +1433,44 @@ button,input,select{font-family:inherit}
   const discountTab = document.getElementById('discountTab');
   const newsletterForm = document.getElementById('newsletterForm');
   const newsletterStatus = document.getElementById('newsletterStatus');
+  const scrollProgress = document.getElementById('scrollProgress');
+  const backToTop = document.getElementById('backToTop');
+
+
+  function updateScrollProgress(){
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = `${progress}%`;
+
+    if(scrollTop > 620){
+      backToTop.classList.add('visible');
+    }else{
+      backToTop.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateScrollProgress, {passive:true});
+  window.addEventListener('resize', updateScrollProgress);
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  const revealItems = document.querySelectorAll('.fade-up');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+
+  revealItems.forEach((item) => revealObserver.observe(item));
 
   window.addEventListener('load', () => {
+    updateScrollProgress();
     setTimeout(() => {
       newsletterPopup.classList.add('active');
     }, 700);
@@ -1350,13 +1518,13 @@ button,input,select{font-family:inherit}
     setProductImage(imageSrc || './hoodie1.jpg?v=1');
     productModal.classList.add('active');
     productModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
   }
 
   function closeProductModal(){
     productModal.classList.remove('active');
     productModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
   }
 
   productOpenButtons.forEach((button) => {
