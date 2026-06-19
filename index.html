@@ -395,6 +395,119 @@ footer{
   justify-content:space-between;
 }
 
+
+.newsletter-popup{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(0,0,0,.62);
+  backdrop-filter:blur(4px);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+}
+
+.newsletter-popup.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.newsletter-box{
+  width:min(460px,100%);
+  max-height:92vh;
+  overflow:auto;
+  position:relative;
+  padding:32px 34px 26px;
+  border:1px solid rgba(156,148,91,.75);
+  background:#141511;
+  color:#f5f3dc;
+  text-align:center;
+  box-shadow:0 22px 70px rgba(0,0,0,.65);
+}
+
+.newsletter-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:#847d49;
+  color:#f5f3dc;
+  font-size:34px;
+  line-height:30px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.newsletter-box h2{
+  font-size:34px;
+  line-height:.98;
+  letter-spacing:-1.5px;
+  text-transform:uppercase;
+  margin:0 0 18px;
+}
+
+.newsletter-box p{
+  font-size:20px;
+  line-height:1.18;
+  color:#f1efd6;
+  margin:0 auto 28px;
+}
+
+.newsletter-images{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:4px;
+  margin:0 auto 34px;
+  max-width:330px;
+}
+
+.newsletter-images img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  background:#050505;
+}
+
+.newsletter-btn{
+  width:min(250px,100%);
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:18px 20px;
+  border-radius:5px;
+  background:#847d49;
+  color:#f5f3dc;
+  border:0;
+  font-size:20px;
+  font-weight:900;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+@media(max-width:540px){
+  .newsletter-box{
+    padding:32px 24px 24px;
+  }
+
+  .newsletter-box h2{
+    font-size:29px;
+  }
+
+  .newsletter-box p{
+    font-size:18px;
+  }
+}
+
 @media(max-width:1000px){
   .hero,.release,.info-grid,.merch-grid{
     grid-template-columns:1fr;
@@ -422,6 +535,30 @@ footer{
 </head>
 
 <body>
+
+
+<div class="newsletter-popup" id="newsletterPopup">
+  <div class="newsletter-box">
+    <button class="newsletter-close" id="newsletterClose" aria-label="Close popup">×</button>
+
+    <h2>Subscribe to the newsletter and secure a 10% discount</h2>
+
+    <p>
+      Sign up for the newsletter and receive a 10% discount on your first order
+      as well as news about drops, exclusive offers, artist specials and the best
+      merch from the hip-hop world!
+    </p>
+
+    <div class="newsletter-images">
+      <img src="./hoodie1.jpg?v=1" alt="Yirtuamlak hoodie front">
+      <img src="./hoodie2.jpg?v=1" alt="Yirtuamlak hoodie back">
+      <img src="./hoodie3.jpg?v=1" alt="Yirtuamlak hoodie on body">
+      <img src="./kakddda.jpg?v=1" alt="Yirtuamlak campaign image">
+    </div>
+
+    <button class="newsletter-btn" id="newsletterButton">Subscribe Now</button>
+  </div>
+</div>
 
 <div class="noise"></div>
 
@@ -573,6 +710,36 @@ footer{
 </footer>
 
 </div>
+
+
+<script>
+  const newsletterPopup = document.getElementById('newsletterPopup');
+  const newsletterClose = document.getElementById('newsletterClose');
+  const newsletterButton = document.getElementById('newsletterButton');
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      newsletterPopup.classList.add('active');
+    }, 700);
+  });
+
+  function closeNewsletterPopup(){
+    newsletterPopup.classList.remove('active');
+  }
+
+  newsletterClose.addEventListener('click', closeNewsletterPopup);
+
+  newsletterPopup.addEventListener('click', (event) => {
+    if(event.target === newsletterPopup){
+      closeNewsletterPopup();
+    }
+  });
+
+  newsletterButton.addEventListener('click', () => {
+    closeNewsletterPopup();
+    document.getElementById('merch').scrollIntoView({behavior:'smooth'});
+  });
+</script>
 
 </body>
 </html>
