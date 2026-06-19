@@ -1090,7 +1090,6 @@ main,
   color:rgba(246,243,216,.78) !important;
 }
 
-.release-platforms,
 .footer-socials,
 .footer-lang{
   display:none !important;
@@ -1148,6 +1147,34 @@ main,
 
 .subscribe-btn:hover{
   background:#a1985e !important;
+}
+
+
+.release-platforms{
+  display:flex !important;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.release-platforms a{
+  padding:12px 17px;
+  border-radius:999px;
+  background:#111 !important;
+  border:1px solid rgba(246,243,216,.12) !important;
+  color:#f6f3d8 !important;
+  font-size:14px;
+  font-weight:900;
+  transition:.25s ease;
+}
+
+.release-platforms a:hover{
+  background:#8a8350 !important;
+  color:#050505 !important;
+}
+
+.release-section{
+  margin-top:0 !important;
 }
 
 </style>
@@ -1209,27 +1236,7 @@ main,
 </section>
 
 
-<section class="release-section" id="release">
-  <div class="release-card">
-    <div class="release-cover">
-      <div class="release-cover-content">
-        <span>Cover Art</span>
-        <h3>Yirtuamlak</h3>
-      </div>
-    </div>
 
-    <div class="release-info">
-      <p class="release-tag">Latest Release</p>
-
-      <h2>Yirtuamlak</h2>
-
-      <p class="release-text">
-        New visual concept and official release campaign.
-      </p>
-    </div>
-  </div>
-
-</section>
 
 <section class="drop-section" id="products">
   <div class="products">
@@ -1276,6 +1283,36 @@ main,
   </div>
 </section>
 
+<section class="release-section" id="release">
+  <div class="release-card">
+    <div class="release-cover">
+      <div class="release-cover-content">
+        <span>Cover Art</span>
+        <h3>Yirtuamlak</h3>
+      </div>
+    </div>
+
+    <div class="release-info">
+      <p class="release-tag">Latest Release</p>
+
+      <h2>Yirtuamlak</h2>
+
+      <p class="release-text">
+        New visual concept and official release campaign.
+      </p>
+
+      <div class="release-platforms">
+        <a href="#" target="_blank">Spotify</a>
+        <a href="#" target="_blank">Apple Music</a>
+        <a href="#" target="_blank">YouTube</a>
+        <a href="#" target="_blank">TikTok</a>
+        <a href="#" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <section class="newsletter-section" id="newsletter">
 <h2>
     SUBSCRIBE TO THE NEWSLETTER AND SECURE A 10% DISCOUNT
@@ -1301,9 +1338,10 @@ main,
     <div class="form-field">
       <label for="country">Country *</label>
       <select id="country" name="entry.1367101595" required>
-<option selected disabled selected>
-    Select your country
-</option>United States</option>
+<option selected disabled>
+          Select your country
+        </option>
+        <option>United States</option>
         <option>United Kingdom</option>
         <option>Canada</option>
         <option>Germany</option>
