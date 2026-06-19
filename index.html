@@ -436,6 +436,14 @@ button,input,select{font-family:inherit}
   color:#f6f3d8;
 }
 
+.newsletter-status{
+  min-height:18px;
+  margin:18px auto 0;
+  font-size:12px;
+  font-weight:900;
+  color:#f6f3d8;
+}
+
 .footer{
   background:#000;
   color:#f6f3d8;
@@ -1001,7 +1009,7 @@ button,input,select{font-family:inherit}
       <img src="./kakddda.jpg?v=1" alt="Yirtuamlak campaign image">
     </div>
 
-    <a class="newsletter-btn" id="newsletterButton" href="https://docs.google.com/forms/d/e/1FAIpQLScz8odh1g4DgVwhpCASqgV8VVBHErmLEdptb_prhaicQy76xA/viewform?usp=sharing&ouid=114765360403515959810" target="_blank">Subscribe Now</a>
+    <button class="newsletter-btn" id="newsletterButton" type="button">Subscribe Now</button>
   </div>
 </div>
 
@@ -1133,20 +1141,20 @@ button,input,select{font-family:inherit}
     zu unseren Drops, exklusiven Gewinnspielen, Artist Specials und den besten Angeboten aus der HipHop-Welt.
   </p>
 
-  <form class="newsletter-form">
+  <form class="newsletter-form" id="newsletterForm" action="https://docs.google.com/forms/d/e/1FAIpQLScz8odh1g4DgVwhpCASqgV8VVBHErmLEdptb_prhaicQy76xA/formResponse" method="POST" target="hiddenGoogleFormFrame">
     <div class="form-field">
       <label for="email">Email *</label>
-      <input id="email" type="email" placeholder="Email *">
+      <input id="email" name="entry.536615601" type="email" placeholder="Email *" required>
     </div>
 
     <div class="form-field">
       <label for="firstName">First Name</label>
-      <input id="firstName" type="text" placeholder="First Name">
+      <input id="firstName" name="entry.1605740362" type="text" placeholder="First Name">
     </div>
 
     <div class="form-field">
       <label for="country">Country *</label>
-      <select id="country">
+      <select id="country" name="entry.1367101595" required>
         <option>Germany</option>
         <option>United States</option>
         <option>United Kingdom</option>
@@ -1160,7 +1168,11 @@ button,input,select{font-family:inherit}
     By subscribing you confirm that you want to receive our Yirtuamlak newsletter.
   </p>
 
-  <a class="subscribe-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScz8odh1g4DgVwhpCASqgV8VVBHErmLEdptb_prhaicQy76xA/viewform?usp=sharing&ouid=114765360403515959810" target="_blank">Subscribe Now</a>
+  <button class="subscribe-btn" type="submit" form="newsletterForm">Subscribe Now</button>
+
+  <p class="newsletter-status" id="newsletterStatus" aria-live="polite"></p>
+
+  <iframe name="hiddenGoogleFormFrame" id="hiddenGoogleFormFrame" style="display:none;"></iframe>
 
   <p class="newsletter-small">
     Receive the latest information about releases, giveaways and promotions by email.
@@ -1290,6 +1302,8 @@ button,input,select{font-family:inherit}
   const newsletterClose = document.getElementById('newsletterClose');
   const newsletterButton = document.getElementById('newsletterButton');
   const discountTab = document.getElementById('discountTab');
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterStatus = document.getElementById('newsletterStatus');
 
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -1380,6 +1394,15 @@ button,input,select{font-family:inherit}
       closeProductModal();
     }
   });
+
+  newsletterForm.addEventListener('submit', () => {
+    newsletterStatus.textContent = 'Thank you. Your subscription was sent.';
+
+    setTimeout(() => {
+      newsletterForm.reset();
+    }, 600);
+  });
+
 </script>
 
 </body>
