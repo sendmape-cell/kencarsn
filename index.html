@@ -200,6 +200,141 @@ button,input,select{font-family:inherit}
   color:#f6f3d8;
 }
 
+.release-section{
+  background:#050505;
+  padding:70px 18px 42px;
+}
+
+.release-card{
+  max-width:1260px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:30px;
+  align-items:center;
+  padding:30px;
+  border-radius:34px;
+  background:rgba(14,14,14,.92);
+  border:1px solid rgba(246,243,216,.08);
+}
+
+.release-cover{
+  height:340px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  background-image:url("./mainph.webp");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  box-shadow:0 0 50px rgba(0,0,0,.45);
+}
+
+.release-cover::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.78),transparent 58%);
+  z-index:1;
+}
+
+.release-cover-content{
+  position:absolute;
+  left:26px;
+  bottom:26px;
+  right:26px;
+  z-index:2;
+}
+
+.release-cover-content span{
+  color:#f6f3d8;
+  font-size:12px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+.release-cover-content h3{
+  font-size:38px;
+  line-height:.95;
+  margin-top:10px;
+  color:#f6f3d8;
+}
+
+.release-tag{
+  color:#8a8350;
+  text-transform:uppercase;
+  letter-spacing:5px;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.release-info h2{
+  font-size:56px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-2px;
+  margin-bottom:14px;
+  color:#f6f3d8;
+}
+
+.release-text{
+  color:#f6f3d8;
+  opacity:.88;
+  line-height:1.7;
+  max-width:620px;
+  font-size:16px;
+}
+
+.release-platforms{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.release-platforms a{
+  padding:12px 17px;
+  border-radius:999px;
+  background:#111;
+  border:1px solid rgba(246,243,216,.08);
+  color:#f6f3d8;
+  font-size:14px;
+  font-weight:800;
+}
+
+.release-platforms a:hover{
+  background:#8a8350;
+  color:#f6f3d8;
+}
+
+.info-grid{
+  max-width:1260px;
+  margin:22px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.info-card{
+  padding:28px;
+  border-radius:30px;
+  background:rgba(14,14,14,.92);
+  border:1px solid rgba(246,243,216,.08);
+}
+
+.info-card h3{
+  font-size:24px;
+  margin-bottom:10px;
+  color:#f6f3d8;
+}
+
+.info-card p{
+  color:#c9c4a6;
+  line-height:1.7;
+  font-size:15px;
+}
+
 .newsletter-section{
   background:#171814;
   color:#f6f3d8;
@@ -533,6 +668,15 @@ button,input,select{font-family:inherit}
     gap:38px;
   }
 
+  .release-card,
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .release-info h2{
+    font-size:42px;
+  }
+
   .product-image,
   .product-card.featured .product-image{
     height:520px;
@@ -614,11 +758,6 @@ button,input,select{font-family:inherit}
       <a href="#newsletter">Blog</a>
     </nav>
 
-    <div class="header-icons" aria-hidden="true">
-      <span>⌕</span>
-      <span>♙</span>
-      <span>▢</span>
-    </div>
   </div>
 </header>
 
@@ -632,6 +771,53 @@ button,input,select{font-family:inherit}
       merch drop<br>
       available now
     </p>
+  </div>
+</section>
+
+
+<section class="release-section" id="release">
+  <div class="release-card">
+    <div class="release-cover">
+      <div class="release-cover-content">
+        <span>Cover Art</span>
+        <h3>Yirtuamlak</h3>
+      </div>
+    </div>
+
+    <div class="release-info">
+      <p class="release-tag">Latest Release</p>
+
+      <h2>Yirtuamlak</h2>
+
+      <p class="release-text">
+        New visual concept and official release campaign.
+      </p>
+
+      <div class="release-platforms">
+        <a href="#">Spotify</a>
+        <a href="#">Apple Music</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Streaming</h3>
+      <p>All music platforms connected in one official destination.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Visual identity</h3>
+      <p>Premium presentation for visuals, campaigns and artist image.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Direct booking</h3>
+      <p>Contact for shows, collaborations, interviews and business.</p>
+    </div>
   </div>
 </section>
 
